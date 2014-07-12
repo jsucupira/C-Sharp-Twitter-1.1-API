@@ -277,6 +277,8 @@ namespace TwitterFeed
         ///     This is a different Url Encode implementation since the default .NET one outputs the percent encoding in lower
         ///     case.
         ///     While this is not a problem with the percent encoding spec, it is used in upper case throughout OAuth
+        /// 
+        ///     JS: I am not sure why, but for comman the encoding this was generating was %2C, but Oauth is expecting %252C
         /// </summary>
         /// <param name="value">The value to Url encode</param>
         /// <returns>Returns a Url encoded string</returns>
@@ -289,7 +291,12 @@ namespace TwitterFeed
                 if (UnreservedChars.IndexOf(symbol) != -1)
                     result.Append(symbol);
                 else
-                    result.Append('%' + String.Format("{0:X2}", (int)symbol));
+                {
+                    if (symbol == ',')
+                        result.Append("%252C");
+                    else
+                        result.Append('%' + String.Format("{0:X2}", (int)symbol));
+                }
             }
 
             return result.ToString();

@@ -8,10 +8,10 @@ namespace TwitterFeed.Test
     [TestClass]
     public class TwitterTest
     {
-        private readonly string _consumerKey = ConfigurationManager.AppSettings["CONSUMER_KEY"];
-        private readonly string _consumerSecret = ConfigurationManager.AppSettings["CONSUMER_SECRET"];
-        private readonly string _token = ConfigurationManager.AppSettings["TOKEN"];
-        private readonly string _tokenSecret = ConfigurationManager.AppSettings["TOKEN_SECRET"];
+        private readonly string _consumerKey = ConfigurationManager.AppSettings["customer_key"];
+        private readonly string _consumerSecret = ConfigurationManager.AppSettings["customer_secret"];
+        private readonly string _token = ConfigurationManager.AppSettings["access_token"];
+        private readonly string _tokenSecret = ConfigurationManager.AppSettings["access_token_secret"];
 
 
         [TestMethod]
