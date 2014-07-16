@@ -48,8 +48,13 @@ namespace TwitterFeed
             {
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 httpClient.DefaultRequestHeaders.Add("Authorization", authHeader);
-                string result = httpClient.GetStringAsync(url).Result;
-                return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+
+                var response = httpClient.GetAsync(url).Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (response.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+                else
+                    throw new HttpRequestException(result);
             }
         }
 
@@ -74,8 +79,13 @@ namespace TwitterFeed
             {
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 httpClient.DefaultRequestHeaders.Add("Authorization", authHeader);
-                string result = httpClient.GetStringAsync(url).Result;
-                return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+
+                var response = httpClient.GetAsync(url).Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (response.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+                else
+                    throw new HttpRequestException(result);
             }
         }
 
@@ -99,8 +109,13 @@ namespace TwitterFeed
             {
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 httpClient.DefaultRequestHeaders.Add("Authorization", authHeader);
-                string result = httpClient.GetStringAsync(url).Result;
-                return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+
+                var response = httpClient.GetAsync(url).Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (response.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+                else
+                    throw new HttpRequestException(result);
             }
         }
 
@@ -125,8 +140,13 @@ namespace TwitterFeed
             {
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 httpClient.DefaultRequestHeaders.Add("Authorization", authHeader);
-                string result = httpClient.GetStringAsync(url).Result;
-                return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+
+                var response = httpClient.GetAsync(url).Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                if (response.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<List<TwitterObject>>(result);
+                else
+                    throw new HttpRequestException(result);
             }
         }
 
